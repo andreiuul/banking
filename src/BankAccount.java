@@ -33,7 +33,7 @@ public class BankAccount {
     }
 
     public void withdrawMoney(double sum, Currency currency) {
-        double relativeSum = sum * currency.getRelativeValue() / this.currency.getRelativeValue();
+        double relativeSum = sum * currency.getRelativeValue() / this.currency.getRelativeValue();//convert withdrawal to local currency
         if (relativeSum > sold) {
             System.out.println("credit insuficient");
             return;
@@ -61,7 +61,7 @@ public class BankAccount {
             return;
         }
 
-        sold += sum * currency.getRelativeValue() / this.currency.getRelativeValue();
+        sold += sum * currency.getRelativeValue() / this.currency.getRelativeValue();//convert withdrawal to local currency
     }
 
     public double getSold() {

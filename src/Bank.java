@@ -15,10 +15,6 @@ public class Bank {
         }
         accountsArray[numberOfTotalAccounts] = account;
         numberOfTotalAccounts++;
-
-
-
-
     }
 
     public void deleteBankAccount(BankAccount account) {
@@ -52,13 +48,31 @@ public class Bank {
 
     }
     public int getIndexAccount(BankAccount account) {
-        for (int i = 0; i < numberOfTotalAccounts; i++) {
-            if (account.getId() == accountsArray[i].getId()) {
-                return i;
+
+        int start = 0, end = accountsArray.length - 1, middle = accountsArray.length / 2;
+
+        while (start < end) {
+            if (accountsArray[middle].getId() == account.getId()) {
+                return middle;
+            } else if (account.getId() < accountsArray[middle].getId()) {
+                end = middle - 1;
+                middle = (end + start) / 2;
+            } else {
+                start = middle + 1;
+                middle = (end + start) / 2;
             }
         }
-
         return -1;
+
+
+
+//        for (int i = 0; i < numberOfTotalAccounts; i++) {
+//            if (account.getId() == accountsArray[i].getId()) {
+//                return i;
+//            }
+//        }
+//
+//        return -1;
     }
 
     public boolean verifyCreditCard(String creditCardNumber){
@@ -101,7 +115,6 @@ public class Bank {
             return false;
         }
 
-
         //for (int i = 0; i <number.length ; i++) {
          //   System.out.print((int)number[i]);
     return true;
@@ -133,10 +146,5 @@ public class Bank {
         }else{
             return doubeled%10 + doubeled/10;
         }
-
     }
-
-
-
-
 }
