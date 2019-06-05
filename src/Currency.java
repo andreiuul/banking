@@ -9,6 +9,22 @@ public enum Currency {
     }
 
     public double getRelativeValue() {
+
         return relativeValue;
     }
+
+    public String printCurrency(){
+        if(relativeValue == RON.relativeValue){
+            return "RON";
+        }
+        if(relativeValue == YEN.relativeValue){
+            return "YEN";
+        }
+        if(relativeValue == EUR.relativeValue){
+            return "EUR";
+        }
+            return "USD";
+    }
+
+
 }

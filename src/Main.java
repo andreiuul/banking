@@ -27,10 +27,10 @@ public class Main {
 
         b1.withdrawMoney(20);
         b3.withdrawMoney(20, Currency.USD);
-        System.out.println(b1.getSold());
-        System.out.println(b3.getSold());
+        System.out.println(b1.getSold()+ b1.getCurrency().printCurrency());
+        System.out.println(b3.getSold() + b3.getCurrency().printCurrency());
 
-        if(banca.verifyCreditCard("4388576018402626")){
+        if(banca.verifyCreditCard("4388576018402626")){ //numarul din exemplu; nu o sa fie bun
             System.out.println("e bun");
         }else{
             System.out.println("nu e bun");
